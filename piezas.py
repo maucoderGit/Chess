@@ -115,6 +115,8 @@ peon_blanco_8 = {
     "estado" : True
 }
 
+#Piezas negra, posiciones, estado y valor
+
 rey_negro = {
     "nombre" : "Rey",
     "fila" : [8,5],
@@ -228,9 +230,3 @@ peon_negro_8 = {
     "estado" : True
 }
 
-def run():
-    print(rey_blanco)
-
-
-if __name__ == "__main__":
-    run()
