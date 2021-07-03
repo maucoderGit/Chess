@@ -14,15 +14,15 @@ def tablero():
     fila_7 = ["a7","b7","c7","d7","e7","f7","g7","h7"]
     fila_8 = ["a8","b8","c8","d8","e8","f8","g8","h8"]
 
-//Programando nuestro tablero de ajedrez
+#Programando nuestro tablero de ajedrez
 
 def run():
     player = 0;
     if player == 0:
-        print "Juegan blancas."
+        print ("Juegan blancas.")
         player += 1;
     else:
-        print "Juegan negras"
+        print ("Juegan negras")
         player -= 1;
 
 
