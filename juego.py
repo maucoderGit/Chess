@@ -1,8 +1,8 @@
 def turnos(player):
     if player == 0:
-        return "White´s play"
+        return 0;
     else:
-        return "Black´s play"
+        return 0;
 
 def tablero():
     fila_1 = ["a1","b1","c1","d1","e1","f1","g1","h1"]
@@ -14,8 +14,16 @@ def tablero():
     fila_7 = ["a7","b7","c7","d7","e7","f7","g7","h7"]
     fila_8 = ["a8","b8","c8","d8","e8","f8","g8","h8"]
 
+//Programando nuestro tablero de ajedrez
+
 def run():
-    pass
+    player = 0;
+    if player == 0:
+        print "Juegan blancas."
+        player += 1;
+    else:
+        print "Juegan negras"
+        player -= 1;
 
 
 if __name__ == "__main__":
