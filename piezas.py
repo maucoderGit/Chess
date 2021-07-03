@@ -2,15 +2,18 @@ import tablero
 
 
 def piezas():
-    tablero.table
+    
     rey_blanco = {
         "nombre" : "rey",
-        "position" : "columna_d"[tablero]
+        "position" : tablero.filas
     }
 
-def run():
-    pass
+
+# def run():
+#     dato = piezas()
+#     print (dato) 
+#     print ("buenas")
 
 
-if __name__ == "__main__":
-    run()
+# if __name__ == "__main__":
+#     run()
