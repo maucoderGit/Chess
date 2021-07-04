@@ -1,12 +1,16 @@
 import tablero
+import move
 
 #Ajustando los valores y posición inicial de las piezas blancas.
 
-rey_blanco = {
+def rey(columna, fila, jaque, pieza_rey, posicion):
+    if posicion[columna] != columna and posicion[fila] != fila: 
+        move.diagonales(columna, fila)
+
+pieza_rey = {
     "nombre" : "Rey",
-    "posicion" : [1,5],
-    "valor" : "Demasiado",
-    "estado" : True,
+    "movimiento_min" : 1,
+    "movimiento_max" : 1,
     "Jaque" : False
 }
 
@@ -229,4 +233,3 @@ peon_negro_8 = {
     "valor" : 1,
     "estado" : True
 }
-
