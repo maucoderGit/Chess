@@ -1,4 +1,4 @@
-#CHESS logic in python3
+#Chess Logic  
 
 A complete logic chess game in **python**. with moves of pieces, check & Checkmate, excellent practice of logic in a full logic game.
 
