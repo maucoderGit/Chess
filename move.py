@@ -1,8 +1,9 @@
 #import piezas
 # If we use a function, we only need to create move functions and we can continue the game.
 
-def legal_move(columna_anterior,columna_actual , fila_anterior, fila_actual, move_min_max):
-    print ("Hola :)")
+def legal_move(columna_anterior,columna_actual , fila_anterior, fila_actual, legal):
+    if columna_anterior - columna_actual > legal:
+        print ("Hola mundo")
 def up_down(last_move, move_min_max, before_move):
     pass
 
