@@ -1,9 +1,17 @@
-#import piezas
-# If we use a function, we only need to create move functions and we can continue the game.
 
-def legal_move(columna_anterior,columna_actual , fila_anterior, fila_actual, legal):
-    if columna_anterior - columna_actual > legal:
-        print ("Hola mundo")
+#necesitamos una funcion que determine si no es legal, y que luego usemos en cada jugada
+
+def legal_move(pos_anterior, pos_actual, legal):
+    resta = pos_actual - pos_anterior
+    if resta > legal:
+        jugada = ("No es legal")
+    else:
+        jugada = ("es legal")
+    return jugada
+
+#Decidi que es mejor hacer la función en un bucle y que 
+#verifique si es legal o no hasta que se decida un resultado
+
 def up_down(last_move, move_min_max, before_move):
     pass
 
@@ -16,7 +24,9 @@ columna = int(input("cual es la columna: "))
 fila = int(input("cual es la fila: "))
 culumna_ant = 1
 fila_ant = 1
-legal_move(culumna_ant,columna,fila, fila_ant , move_min_max=1)
+pieza = 1
+columna = legal_move(culumna_ant , columna , pieza)
+print (columna)
 #Elimine los parametros 'movimiento_1' 'movimiento_2'
 
 def diagonales(columna, fila):
