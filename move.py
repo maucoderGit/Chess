@@ -1,34 +1,69 @@
 
 #necesitamos una funcion que determine si no es legal, y que luego usemos en cada jugada
 
-def legal_move(pos_anterior, pos_actual, legal):
-    resta = pos_actual - pos_anterior
+def legal_move(posicion_anterior, posicion_actual, legal):
+    resta = posicion_actual - posicion_anterior
     if resta > legal:
-        jugada = ("No es legal")
+        jugada = False
     else:
-        jugada = ("es legal")
+        jugada = True
     return jugada
 
 #Decidi que es mejor hacer la función en un bucle y que 
 #verifique si es legal o no hasta que se decida un resultado
 
-def up_down(last_move, move_min_max, before_move):
-    pass
+def movimiento_columnas(fila_anterior, fila_actual):
+    if fila_anterior != fila_actual:
+        vertical = True
+    else:
+        vertical = False
+    return vertical    
 
-def left_right(columna, fila):
-    # columna = movimiento_2
-    nueva_posicion = [columna, fila]
-    return nueva_posicion
 
-columna = int(input("cual es la columna: "))
-fila = int(input("cual es la fila: "))
-culumna_ant = 1
-fila_ant = 1
-pieza = 1
-columna = legal_move(culumna_ant , columna , pieza)
-print (columna)
-#Elimine los parametros 'movimiento_1' 'movimiento_2'
+def movimiento_filas(columna_anterior, columna_actual):
+    if columna_anterior != columna_actual:
+        horizontal = True
+    else:
+        horizontal = False
+    return horizontal
 
-def diagonales(columna, fila):
-    nueva_posicion = [columna, fila]
-    return nueva_posicion
+
+def tipo_de_movimiento(horizontal, vertical):
+    if horizontal == True and vertical == True:
+        movimiento = "diagonal"
+    elif horizontal == True and vertical == False:
+        movimiento = "horizontal"
+    else:
+        movimiento = "fila"
+    return movimiento
+
+
+def Preguntar_jugada(posicion_anterior, caso, legal):
+    jugada_anterior = posicion_anterior
+    pieza = legal
+
+    jugada = int(input("cual es la " + caso + " : "))
+    jugada_legal = legal_move(jugada_anterior, jugada, pieza)
+
+    if jugada_legal == False:
+        print("no es valido")
+        jugada = Preguntar_jugada(jugada_anterior, caso ,pieza)
+    else:     
+        print("valido")
+    
+    return jugada
+
+def run():
+
+    pieza = 1
+    columna_anterior = 1
+    fila_anterior = 1
+
+    columna = Preguntar_jugada(columna_anterior, "columna",pieza)
+    fila = Preguntar_jugada(fila_anterior,"fila",pieza)
+
+#Decidi crear una función recursiva, para ver si era legal o no.
+#Asi todo el código sera mas estetíco, ademas de que compila mejor :)    
+
+if __name__ == "__main__":
+    run()
