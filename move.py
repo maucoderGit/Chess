@@ -1,6 +1,32 @@
 
 #necesitamos una funcion que determine si no es legal, y que luego usemos en cada jugada
 
+def letras_a_numeros(columna):
+
+    letras = ["a","b","c","d","e","f","g","h"]
+    count = 0
+    for i in letras:
+        count += 1
+        if columna == i:
+            columna = count
+
+    numeros = [1,2,3,4,5,6,7,8]
+    count = 0
+    for i in numeros:
+        count += 1
+        if count == columna:
+            columna = i
+    return columna
+
+def numeros_a_letras(columna):
+    letras = ["a","b","c","d","e","f","g","h"]
+    count = 0
+    for i in letras:
+        count += 1
+        if count == columna:
+            columna = i
+    return columna
+
 def legal_move(posicion_anterior, posicion_actual, legal):
     resta = posicion_actual - posicion_anterior
     if resta > legal:
@@ -49,7 +75,7 @@ def Preguntar_jugada(posicion_anterior, caso, legal):
         print("no es valido")
         jugada = Preguntar_jugada(jugada_anterior, caso ,pieza)
     else:     
-        print("valido")
+        return jugada
     
     return jugada
 
@@ -58,9 +84,21 @@ def run():
     pieza = 1
     columna_anterior = 1
     fila_anterior = 1
+    columna = columna_anterior
+    fila= fila_anterior
 
-    columna = Preguntar_jugada(columna_anterior, "columna",pieza)
-    fila = Preguntar_jugada(fila_anterior,"fila",pieza)
+    while columna == columna_anterior and fila == fila_anterior:
+        print("haz un movimiento") 
+        columna = Preguntar_jugada(columna_anterior, "columna",pieza)
+        fila = Preguntar_jugada(fila_anterior,"fila",pieza)
+
+    mov_vertical = movimiento_columnas(fila_anterior,fila)
+    mov_horizontal = movimiento_filas(columna_anterior, columna)
+
+    movimiento = tipo_de_movimiento(mov_horizontal, mov_vertical)
+
+    columna = numeros_a_letras(columna)
+    print("La nueva posición es: ", columna , fila, "en " + movimiento)
 
 #Decidi crear una función recursiva, para ver si era legal o no.
 #Asi todo el código sera mas estetíco, ademas de que compila mejor :)    
