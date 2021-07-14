@@ -102,7 +102,9 @@ def run():
     print("La nueva posición es: ", columna , fila, "en " + movimiento)
 
 #Decidi crear una función recursiva, para ver si era legal o no.
-#Asi todo el código sera mas estetíco, ademas de que compila mejor :)    
+#Asi todo el código sera mas estetíco, ademas de que compila mejor :)   
 
 if __name__ == "__main__":
     run()
+
+#We complete move, I´m really happy

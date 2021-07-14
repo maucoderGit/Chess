@@ -1,17 +1,12 @@
-import tablero
-import piezas
+import move
 
 
 def game():
-    pass
+    run()
 
-def turnos(player):
-    if player == 0:
-        return 0
-    else:
-        return 1
 
 def run():
+    move.run()
     resultado = ""
     player = 0
 
