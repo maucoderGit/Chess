@@ -28,8 +28,9 @@ def numeros_a_letras(columna):
     return columna
 
 def legal_move(posicion_anterior, posicion_actual, legal):
+
     resta = posicion_actual - posicion_anterior
-    if resta > legal:
+    if resta > legal or (posicion_actual < 1 or posicion_actual > 8):
         jugada = False
     else:
         jugada = True
