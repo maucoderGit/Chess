@@ -1,27 +1,32 @@
-
+import piezas
 #necesitamos una funcion que determine si no es legal, y que luego usemos en cada jugada
 
-def letras_a_numeros(columna):
+LETRAS = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","ñ","o","p",
+"q","r","s","t","u","v","w","x","y","z"]
 
-    letras = ["a","b","c","d","e","f","g","h"]
+
+def letras_a_numeros(columna):
     count = 0
-    for i in letras:
+    for i in LETRAS:
         count += 1
         if columna == i:
             columna = count
+    # columna = (count + 1 for i in letras if columna != i)
+    # print(columna)
 
-    numeros = [1,2,3,4,5,6,7,8]
-    count = 0
-    for i in numeros:
-        count += 1
-        if count == columna:
-            columna = i
     return columna
 
+    # numeros = [1,2,3,4,5,6,7,8]
+    # count = 0
+    # for i in numeros:
+    #     count += 1
+    #     if count == columna:
+    #         columna = i
+    # return columna
+
 def numeros_a_letras(columna):
-    letras = ["a","b","c","d","e","f","g","h"]
     count = 0
-    for i in letras:
+    for i in LETRAS:
         count += 1
         if count == columna:
             columna = i
@@ -69,7 +74,12 @@ def Preguntar_jugada(posicion_anterior, caso, legal):
     jugada_anterior = posicion_anterior
     pieza = legal
 
-    jugada = int(input("cual es la " + caso + " : "))
+    if caso == "columna":
+        jugada = input("cual es la " + caso + " : ")
+        jugada = letras_a_numeros(jugada)
+    else:
+        jugada = int(input("cual es la " + caso + " : "))
+
     jugada_legal = legal_move(jugada_anterior, jugada, pieza)
 
     if jugada_legal == False:
@@ -77,7 +87,6 @@ def Preguntar_jugada(posicion_anterior, caso, legal):
         jugada = Preguntar_jugada(jugada_anterior, caso ,pieza)
     else:     
         return jugada
-    
     return jugada
 
 def run():
@@ -99,7 +108,7 @@ def run():
     movimiento = tipo_de_movimiento(mov_horizontal, mov_vertical)
 
     columna = numeros_a_letras(columna)
-    print("La nueva posición es: ", columna , fila, "en " + movimiento)
+    print("La nueva posición es: " ,columna , fila, "en " + movimiento)
 
 #Decidi crear una función recursiva, para ver si era legal o no.
 #Asi todo el código sera mas estetíco, ademas de que compila mejor :)   

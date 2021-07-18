@@ -5,12 +5,12 @@ legal_move = 1
 
 #Ajustando los valores y posición inicial de las piezas blancas.
 
-def rey(columna, fila, jaque, pieza_rey, posicion):
-    if posicion[columna] != columna and posicion[fila] != fila: 
-        move.diagonales(columna, fila)
+def rey(columna, fila, jaque):
+    print(pieza_rey["nombre"])  
+    
 
 pieza_rey = {
-    "nombre" : "Rey",
+    "nombre" : "K",
     "movimiento_min" : 1,
     "movimiento_max" : 1,
     "Jaque" : False
